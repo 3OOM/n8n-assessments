@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" width="100%" height="100%" style="background:#141724;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,sans-serif;">
+  <!-- Canvas Background Grid -->
+  <defs>
+    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#2d334a" />
+    </pattern>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e2238" />
+      <stop offset="100%" stop-color="#181b2d" />
+    </linearGradient>
+    <linearGradient id="triggerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#15803d" />
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6d5a" />
+      <stop offset="100%" stop-color="#e84026" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="650" fill="#141724" />
+  <rect width="1200" height="650" fill="url(#dotGrid)" />
+
+  <!-- Top App Navigation Bar -->
+  <rect width="1200" height="60" fill="url(#headerGrad)" stroke="#2b314d" stroke-width="1" />
+  
+  <!-- Left Logo & Nav -->
+  <rect x="20" y="14" width="32" height="32" rx="8" fill="#ff6d5a" />
+  <text x="28" y="36" fill="#fff" font-weight="900" font-size="20">n</text>
+  
+  <!-- Workflow Name -->
+  <text x="70" y="37" fill="#ffffff" font-size="17" font-weight="600">My First N8N Workflow</text>
+  <rect x="270" y="21" width="60" height="20" rx="4" fill="#2a304e" />
+  <text x="281" y="35" fill="#a0aec0" font-size="11" font-weight="500">SAVED</text>
+
+  <!-- Top Right Actions -->
+  <rect x="990" y="13" width="90" height="34" rx="6" fill="#2d3559" stroke="#3e4875" stroke-width="1" />
+  <text x="1016" y="35" fill="#e2e8f0" font-size="13" font-weight="500">Share</text>
+  <rect x="1090" y="13" width="90" height="34" rx="6" fill="#ff6d5a" />
+  <text x="1118" y="35" fill="#ffffff" font-size="13" font-weight="600">Save</text>
+
+  <!-- Left-to-Right Connection Arrow -->
+  <path d="M 450 310 C 530 310, 570 310, 650 310" fill="none" stroke="#6875a5" stroke-width="3" stroke-dasharray="6 4" />
+  <!-- Arrow Head -->
+  <polygon points="650,305 660,310 650,315" fill="#6875a5" />
+
+  <!-- Node 1: Manual Trigger -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="240" width="240" height="140" rx="14" fill="#1d2238" stroke="#333c63" stroke-width="2" />
+    <rect x="210" y="240" width="240" height="42" rx="14" fill="#232944" />
+    <rect x="210" y="268" width="240" height="14" fill="#232944" />
+    
+    <circle cx="236" cy="261" r="10" fill="url(#triggerGrad)" />
+    <text x="256" y="266" fill="#f8fafc" font-size="13" font-weight="600">When clicking ‘Test workflow’</text>
+    
+    <text x="230" y="315" fill="#94a3b8" font-size="13">Trigger node</text>
+    <text x="230" y="338" fill="#64748b" font-size="11">Starts workflow on click</text>
+    
+    <!-- Output Port Handle -->
+    <circle cx="450" cy="310" r="7" fill="#6875a5" stroke="#1d2238" stroke-width="2" />
+  </g>
+
+  <!-- Node 2: Edit Fields (Set) -->
+  <g filter="url(#shadow)">
+    <rect x="660" y="240" width="260" height="140" rx="14" fill="#1d2238" stroke="#ff6d5a" stroke-width="2" />
+    <rect x="660" y="240" width="260" height="42" rx="14" fill="#2d283c" />
+    <rect x="660" y="268" width="260" height="14" fill="#2d283c" />
+    
+    <circle cx="686" cy="261" r="10" fill="url(#nodeGrad)" />
+    <text x="706" y="266" fill="#f8fafc" font-size="13" font-weight="600">Edit Fields (Set)</text>
+    
+    <text x="680" y="315" fill="#94a3b8" font-size="13">Sets greeting field</text>
+    <text x="680" y="338" fill="#ff9080" font-size="11">greeting = "Hello, n8n!"</text>
+    
+    <!-- Input Port Handle -->
+    <circle cx="660" cy="310" r="7" fill="#ff6d5a" stroke="#1d2238" stroke-width="2" />
+    <!-- Output Port Handle -->
+    <circle cx="920" cy="310" r="7" fill="#6875a5" stroke="#1d2238" stroke-width="2" />
+  </g>
+
+  <!-- Bottom Action Bar / Test Workflow Button -->
+  <g filter="url(#shadow)">
+    <rect x="490" y="555" width="220" height="50" rx="25" fill="#ff6d5a" />
+    <polygon points="535,573 547,580 535,587" fill="#ffffff" />
+    <text x="560" y="586" fill="#ffffff" font-size="15" font-weight="700">Test workflow</text>
+  </g>
+
+  <!-- Info Overlay Tag -->
+  <rect x="30" y="605" width="290" height="28" rx="6" fill="#1b2035" stroke="#2f375b" stroke-width="1" />
+  <text x="42" y="624" fill="#94a3b8" font-size="12">Tayana Academy Assessment | Topic 1 Canvas</text>
+</svg>

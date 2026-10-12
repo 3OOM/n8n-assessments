@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" width="100%" height="100%" style="background:#0f111a;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,sans-serif;">
+  <!-- Split Inspector View -->
+  <rect width="1200" height="650" fill="#0f111a" />
+
+  <!-- Top Inspector Header -->
+  <rect width="1200" height="55" fill="#181b29" stroke="#262b42" stroke-width="1" />
+  <text x="25" y="34" fill="#ffffff" font-size="16" font-weight="700">Output Inspector: Edit Fields (Set)</text>
+  <rect x="290" y="16" width="90" height="24" rx="4" fill="#064e3b" />
+  <text x="303" y="32" fill="#34d399" font-size="12" font-weight="600">1 item (3ms)</text>
+
+  <!-- Left: Table View Pane (width 360) -->
+  <g transform="translate(20, 75)">
+    <rect width="360" height="540" rx="10" fill="#151824" stroke="#252a3f" stroke-width="1" />
+    <!-- Header with active tab -->
+    <rect width="360" height="42" rx="10" fill="#1c2032" />
+    <text x="20" y="27" fill="#38bdf8" font-size="14" font-weight="700">1. Table View</text>
+    <rect x="260" y="10" width="85" height="22" rx="4" fill="#0e3a53" />
+    <text x="272" y="25" fill="#38bdf8" font-size="11" font-weight="600">Selected</text>
+
+    <!-- Table Header Row -->
+    <rect x="15" y="55" width="330" height="34" fill="#20253b" rx="4" />
+    <text x="30" y="77" fill="#94a3b8" font-size="12" font-weight="600">#</text>
+    <text x="70" y="77" fill="#cbd5e1" font-size="12" font-weight="700">greeting</text>
+
+    <!-- Table Data Row -->
+    <rect x="15" y="95" width="330" height="40" fill="#181d2e" rx="4" stroke="#2c3453" stroke-width="1" />
+    <text x="30" y="120" fill="#64748b" font-size="12">1</text>
+    <text x="70" y="120" fill="#22c55e" font-size="13" font-weight="600">Hello, n8n!</text>
+
+    <!-- Info Box -->
+    <rect x="15" y="440" width="330" height="75" rx="8" fill="#1a1e30" />
+    <text x="30" y="468" fill="#a5b4fc" font-size="12" font-weight="600">Table View Verification:</text>
+    <text x="30" y="492" fill="#94a3b8" font-size="11">Renders column 'greeting' with exact string value.</text>
+  </g>
+
+  <!-- Middle: JSON View Pane (width 400) -->
+  <g transform="translate(400, 75)">
+    <rect width="390" height="540" rx="10" fill="#151824" stroke="#252a3f" stroke-width="1" />
+    <rect width="390" height="42" rx="10" fill="#1c2032" />
+    <text x="20" y="27" fill="#22c55e" font-size="14" font-weight="700">2. JSON View</text>
+    <rect x="290" y="10" width="85" height="22" rx="4" fill="#064e3b" />
+    <text x="305" y="25" fill="#34d399" font-size="11" font-weight="600">Required</text>
+
+    <!-- Code Block Box -->
+    <rect x="15" y="55" width="360" height="360" rx="8" fill="#0d1017" stroke="#222738" stroke-width="1" />
+    
+    <text x="35" y="95" fill="#64748b" font-family="monospace" font-size="13">1</text>
+    <text x="60" y="95" fill="#94a3b8" font-family="monospace" font-size="14">[</text>
+    
+    <text x="35" y="125" fill="#64748b" font-family="monospace" font-size="13">2</text>
+    <text x="80" y="125" fill="#94a3b8" font-family="monospace" font-size="14">{</text>
+    
+    <!-- Exact required JSON match -->
+    <rect x="100" y="137" width="230" height="30" fill="#064e3b" opacity="0.4" rx="4" />
+    <text x="35" y="157" fill="#64748b" font-family="monospace" font-size="13">3</text>
+    <text x="110" y="157" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="bold">"greeting"</text>
+    <text x="200" y="157" fill="#94a3b8" font-family="monospace" font-size="14">: </text>
+    <text x="215" y="157" fill="#a7f3d0" font-family="monospace" font-size="14" font-weight="bold">"Hello, n8n!"</text>
+    
+    <text x="35" y="187" fill="#64748b" font-family="monospace" font-size="13">4</text>
+    <text x="80" y="187" fill="#94a3b8" font-family="monospace" font-size="14">}</text>
+    
+    <text x="35" y="217" fill="#64748b" font-family="monospace" font-size="13">5</text>
+    <text x="60" y="217" fill="#94a3b8" font-family="monospace" font-size="14">]</text>
+
+    <!-- Info Box -->
+    <rect x="15" y="440" width="360" height="75" rx="8" fill="#1a1e30" />
+    <text x="30" y="468" fill="#34d399" font-size="12" font-weight="600">Exact Match Confirmed:</text>
+    <text x="30" y="492" fill="#94a3b8" font-size="11">{ "greeting": "Hello, n8n!" } generated accurately.</text>
+  </g>
+
+  <!-- Right: Schema View Pane (width 360) -->
+  <g transform="translate(810, 75)">
+    <rect width="370" height="540" rx="10" fill="#151824" stroke="#252a3f" stroke-width="1" />
+    <rect width="370" height="42" rx="10" fill="#1c2032" />
+    <text x="20" y="27" fill="#f59e0b" font-size="14" font-weight="700">3. Schema View</text>
+    <rect x="270" y="10" width="85" height="22" rx="4" fill="#451a03" />
+    <text x="282" y="25" fill="#f59e0b" font-size="11" font-weight="600">Validated</text>
+
+    <!-- Schema Tree Items -->
+    <rect x="15" y="55" width="340" height="60" rx="6" fill="#1a1f31" stroke="#28304c" stroke-width="1" />
+    <text x="30" y="80" fill="#cbd5e1" font-size="13" font-weight="700">greeting</text>
+    <rect x="110" y="66" width="60" height="20" rx="4" fill="#0369a1" />
+    <text x="122" y="80" fill="#ffffff" font-size="11" font-weight="600">string</text>
+    <text x="30" y="102" fill="#64748b" font-size="11">Length: 11 characters | Sample: "Hello, n8n!"</text>
+
+    <!-- Schema Info Box -->
+    <rect x="15" y="440" width="340" height="75" rx="8" fill="#1a1e30" />
+    <text x="30" y="468" fill="#f59e0b" font-size="12" font-weight="600">Data Type Verification:</text>
+    <text x="30" y="492" fill="#94a3b8" font-size="11">Schema confirms primitive string type adherence.</text>
+  </g>
+</svg>

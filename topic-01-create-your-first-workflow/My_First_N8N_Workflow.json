@@ -1,0 +1,72 @@
+{
+  "name": "My First N8N Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        820,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "673cf824-3f9b-44bb-8f2c-e5ad42875f10",
+              "name": "greeting",
+              "value": "Hello, n8n!",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "3dcda46d-c58b-4b10-8b01-5240c117b34b",
+      "name": "Edit Fields (Set)",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1040,
+        360
+      ]
+    }
+  ],
+  "pinData": {
+    "Edit Fields (Set)": [
+      {
+        "json": {
+          "greeting": "Hello, n8n!"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields (Set)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "1a0833e2-8ea9-42b4-9273-0498b671ff8b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "assessment-tayana-academy-node-01"
+  },
+  "id": "MyFirstN8NWorkflow",
+  "tags": []
+}

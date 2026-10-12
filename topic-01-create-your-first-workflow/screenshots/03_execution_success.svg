@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" width="100%" height="100%" style="background:#141724;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,sans-serif;">
+  <defs>
+    <pattern id="dotGridExec" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#2d334a" />
+    </pattern>
+    <filter id="nodeShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="650" fill="#141724" />
+  <rect width="1200" height="650" fill="url(#dotGridExec)" />
+
+  <!-- Top App Navigation Bar -->
+  <rect width="1200" height="60" fill="#1b1f33" stroke="#2b314d" stroke-width="1" />
+  <rect x="20" y="14" width="32" height="32" rx="8" fill="#ff6d5a" />
+  <text x="28" y="36" fill="#fff" font-weight="900" font-size="20">n</text>
+  <text x="70" y="37" fill="#ffffff" font-size="17" font-weight="600">My First N8N Workflow</text>
+  
+  <!-- Success Execution Pill in Header -->
+  <rect x="270" y="18" width="165" height="26" rx="13" fill="#064e3b" stroke="#059669" stroke-width="1" />
+  <circle cx="284" cy="31" r="5" fill="#10b981" />
+  <text x="296" y="35" fill="#a7f3d0" font-size="12" font-weight="600">Execution #1 Succeeded</text>
+
+  <!-- Left-to-Right Connection Arrow - Active Green -->
+  <path d="M 450 310 C 530 310, 570 310, 650 310" fill="none" stroke="#10b981" stroke-width="3.5" />
+  <polygon points="650,305 660,310 650,315" fill="#10b981" />
+
+  <!-- Node 1: Manual Trigger - Success State -->
+  <g filter="url(#nodeShadow)">
+    <rect x="210" y="240" width="240" height="140" rx="14" fill="#1d2238" stroke="#10b981" stroke-width="2.5" />
+    <rect x="210" y="240" width="240" height="42" rx="14" fill="#14362d" />
+    
+    <!-- Success Badge -->
+    <circle cx="430" cy="250" r="12" fill="#10b981" />
+    <text x="425" y="255" fill="#ffffff" font-size="13" font-weight="bold">✓</text>
+    
+    <text x="236" y="266" fill="#f8fafc" font-size="13" font-weight="600">When clicking ‘Test workflow’</text>
+    <text x="230" y="315" fill="#a7f3d0" font-size="13">Status: Success (0ms)</text>
+    <text x="230" y="338" fill="#64748b" font-size="11">1 execution output item</text>
+    
+    <circle cx="450" cy="310" r="7" fill="#10b981" stroke="#1d2238" stroke-width="2" />
+  </g>
+
+  <!-- Node 2: Edit Fields (Set) - Success State -->
+  <g filter="url(#nodeShadow)">
+    <rect x="660" y="240" width="260" height="140" rx="14" fill="#1d2238" stroke="#10b981" stroke-width="2.5" />
+    <rect x="660" y="240" width="260" height="42" rx="14" fill="#14362d" />
+    
+    <!-- Success Badge -->
+    <circle cx="900" cy="250" r="12" fill="#10b981" />
+    <text x="895" y="255" fill="#ffffff" font-size="13" font-weight="bold">✓</text>
+    
+    <text x="686" y="266" fill="#f8fafc" font-size="13" font-weight="600">Edit Fields (Set)</text>
+    <text x="680" y="315" fill="#a7f3d0" font-size="13">Status: Success (3ms)</text>
+    <text x="680" y="338" fill="#a5b4fc" font-size="11">Output generated: 1 item</text>
+    
+    <circle cx="660" cy="310" r="7" fill="#10b981" stroke="#1d2238" stroke-width="2" />
+    <circle cx="920" cy="310" r="7" fill="#10b981" stroke="#1d2238" stroke-width="2" />
+  </g>
+
+  <!-- Execution Notification Toast -->
+  <g filter="url(#nodeShadow)">
+    <rect x="420" y="100" width="360" height="44" rx="8" fill="#064e3b" stroke="#10b981" stroke-width="1.5" />
+    <circle cx="445" cy="122" r="10" fill="#10b981" />
+    <text x="441" y="126" fill="#ffffff" font-weight="bold" font-size="12">✓</text>
+    <text x="465" y="127" fill="#ecfdf5" font-size="14" font-weight="600">Workflow executed successfully</text>
+  </g>
+</svg>
