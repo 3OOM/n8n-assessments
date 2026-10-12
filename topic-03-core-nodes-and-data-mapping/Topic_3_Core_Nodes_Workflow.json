@@ -1,0 +1,144 @@
+{
+  "name": "Topic 3 Core Nodes Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+              "name": "productName",
+              "value": "Wireless Mouse",
+              "type": "string"
+            },
+            {
+              "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+              "name": "basePrice",
+              "value": 25,
+              "type": "number"
+            },
+            {
+              "id": "3c4d5e6f-7a8b-9c0d-1e2f-3a4b5c6d7e8f",
+              "name": "isAvailable",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a1b2c3d4-e5f6-4a5b-8c9d-0e1f2a3b4c5d",
+      "name": "Set Original Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": true,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4d5e6f7a-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+              "name": "isAvailable",
+              "value": false,
+              "type": "boolean"
+            },
+            {
+              "id": "5e6f7a8b-9c0d-1e2f-3a4b-5c6d7e8f9a0b",
+              "name": "inventoryLabel",
+              "value": "={{ $json.productName }}",
+              "type": "string"
+            },
+            {
+              "id": "6f7a8b9c-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+              "name": "priceWithTax",
+              "value": "={{ $json.basePrice * 1.1 }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b2c3d4e5-f6a7-4b8c-9d0e-1f2a3b4c5d6e",
+      "name": "Modify & Map",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        820,
+        360
+      ]
+    }
+  ],
+  "pinData": {
+    "Set Original Data": [
+      {
+        "json": {
+          "productName": "Wireless Mouse",
+          "basePrice": 25,
+          "isAvailable": true
+        }
+      }
+    ],
+    "Modify & Map": [
+      {
+        "json": {
+          "productName": "Wireless Mouse",
+          "basePrice": 25,
+          "isAvailable": false,
+          "inventoryLabel": "Wireless Mouse",
+          "priceWithTax": 27.5
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set Original Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Original Data": {
+      "main": [
+        [
+          {
+            "node": "Modify & Map",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c3d4e5f6-7a8b-4c9d-0e1f-2a3b4c5d6e7f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic3CoreNodesWorkflow",
+  "tags": []
+}

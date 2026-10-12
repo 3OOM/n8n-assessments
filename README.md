@@ -25,7 +25,7 @@ Each assessment is housed in its own dedicated directory containing:
 | :--- | :--- | :--- | :--- | :--- |
 | [`topic-01-create-your-first-workflow/`](./topic-01-create-your-first-workflow/) | **Topic 1: Create Your First Workflow**<br>Manual Trigger + Edit Fields (Set) -> `Hello, n8n!` | Beginner | ✅ Completed | [Workflow JSON](./topic-01-create-your-first-workflow/My_First_N8N_Workflow.json) • [Docs](./topic-01-create-your-first-workflow/README.md) |
 | [`topic-02-workflow-execution-and-debugging/`](./topic-02-workflow-execution-and-debugging/) | **Topic 2: Understanding Workflow Execution & Debugging Basics**<br>Manual Trigger ➔ Edit Fields ➔ HTTP Request (Error & Resolution) | Beginner | ✅ Completed | [Workflow JSON](./topic-02-workflow-execution-and-debugging/Topic_2_Debugging_Workflow.json) • [Docs (MD)](./topic-02-workflow-execution-and-debugging/README.md) • [Docs (PDF)](./topic-02-workflow-execution-and-debugging/README.pdf) |
-| `topic-03-webhooks-and-apis/` *(upcoming)* | Topic 3: Webhooks & External API Integrations | Intermediate | ⏳ Upcoming | — |
+| [`topic-03-core-nodes-and-data-mapping/`](./topic-03-core-nodes-and-data-mapping/) | **Topic 3: Working with Core Nodes & Data Mapping**<br>Manual Trigger ➔ Set Original Data ➔ Modify & Map | Beginner | ✅ Completed | [Workflow JSON](./topic-03-core-nodes-and-data-mapping/Topic_3_Core_Nodes_Workflow.json) • [Docs (MD)](./topic-03-core-nodes-and-data-mapping/README.md) • [Docs (PDF)](./topic-03-core-nodes-and-data-mapping/README.pdf) |
 | `topic-04-conditional-logic/` *(upcoming)* | Topic 4: Flow Control & Conditional Logic (If / Switch) | Intermediate | ⏳ Upcoming | — |
 
 ---
