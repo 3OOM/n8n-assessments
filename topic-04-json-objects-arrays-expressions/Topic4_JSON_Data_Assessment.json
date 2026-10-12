@@ -1,0 +1,146 @@
+{
+  "name": "Topic4_JSON_Data_Assessment",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      customer: {\n        id: \"CUST-8492\",\n        name: \"Jane Doe\",\n        email: \"jane.doe@example.com\",\n        address: {\n          street: \"123 Market Street\",\n          city: \"San Francisco\",\n          state: \"CA\",\n          postalCode: \"94105\",\n          country: \"USA\"\n        }\n      },\n      orders: [\n        {\n          orderId: \"ORD-1001\",\n          item: \"Ergonomic Keyboard\",\n          quantity: 1,\n          total: 149.99,\n          status: \"completed\"\n        },\n        {\n          orderId: \"ORD-1002\",\n          item: \"Wireless Mouse\",\n          quantity: 2,\n          total: 50.00,\n          status: \"shipped\"\n        }\n      ],\n      membership: \"Gold\",\n      status: \"active\"\n    }\n  }\n];"
+      },
+      "id": "7c8d9e0f-1a2b-3c4d-5e6f-7a8b9c0d1e2f",
+      "name": "Mock Nested JSON Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        600,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "8d9e0f1a-2b3c-4d5e-6f7a-8b9c0d1e2f3a",
+              "name": "customerName",
+              "value": "={{ $json.customer.name }}",
+              "type": "string"
+            },
+            {
+              "id": "9e0f1a2b-3c4d-5e6f-7a8b-9c0d1e2f3a4b",
+              "name": "cityOfCustomer",
+              "value": "={{ $json.customer.address.city }}",
+              "type": "string"
+            },
+            {
+              "id": "0f1a2b3c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+              "name": "firstOrderTotal",
+              "value": "={{ $json.orders[0].total }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+      "name": "Extract Values",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        820,
+        360
+      ]
+    }
+  ],
+  "pinData": {
+    "Mock Nested JSON Data": [
+      {
+        "json": {
+          "customer": {
+            "id": "CUST-8492",
+            "name": "Jane Doe",
+            "email": "jane.doe@example.com",
+            "address": {
+              "street": "123 Market Street",
+              "city": "San Francisco",
+              "state": "CA",
+              "postalCode": "94105",
+              "country": "USA"
+            }
+          },
+          "orders": [
+            {
+              "orderId": "ORD-1001",
+              "item": "Ergonomic Keyboard",
+              "quantity": 1,
+              "total": 149.99,
+              "status": "completed"
+            },
+            {
+              "orderId": "ORD-1002",
+              "item": "Wireless Mouse",
+              "quantity": 2,
+              "total": 50.00,
+              "status": "shipped"
+            }
+          ],
+          "membership": "Gold",
+          "status": "active"
+        }
+      }
+    ],
+    "Extract Values": [
+      {
+        "json": {
+          "customerName": "Jane Doe",
+          "cityOfCustomer": "San Francisco",
+          "firstOrderTotal": 149.99
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Mock Nested JSON Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mock Nested JSON Data": {
+      "main": [
+        [
+          {
+            "node": "Extract Values",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d4e5f6a7-8b9c-0d1e-2f3a-4b5c6d7e8f9a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic4JSONDataAssessment",
+  "tags": []
+}
