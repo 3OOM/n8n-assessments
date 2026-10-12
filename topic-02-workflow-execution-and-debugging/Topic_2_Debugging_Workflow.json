@@ -3,86 +3,67 @@
   "nodes": [
     {
       "parameters": {},
-      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
-      "name": "When clicking ‘Test workflow’",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        460,
-        360
-      ]
+        0,
+        0
+      ],
+      "id": "12f968b9-149f-4dec-b087-3be5a95040e9",
+      "name": "When clicking ‘Execute workflow’"
     },
     {
       "parameters": {
         "assignments": {
           "assignments": [
             {
-              "id": "673cf824-3f9b-44bb-8f2c-e5ad42875f10",
+              "id": "5d18d235-31c0-49d8-b1f6-015b7078ae69",
               "name": "greeting",
-              "value": "Hello, n8n!",
+              "value": "Hello n8n",
               "type": "string"
             }
           ]
         },
         "options": {}
       },
-      "id": "3dcda46d-c58b-4b10-8b01-5240c117b34b",
-      "name": "Edit Fields (Set)",
       "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
+      "typeVersion": 3.5,
       "position": [
-        680,
-        360
-      ]
+        224,
+        0
+      ],
+      "id": "d65b9590-f059-464d-8522-274be8dd1fe8",
+      "name": "Create Greetings Message"
     },
     {
       "parameters": {
-        "method": "GET",
-        "url": "https://jsonplaceholder.typicode.com/posts/1",
+        "url": "https://youtu.be/tR7jTe3prbI",
         "options": {}
       },
-      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-      "name": "HTTP Request",
       "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
+      "typeVersion": 4.5,
       "position": [
-        900,
-        360
-      ]
+        448,
+        0
+      ],
+      "id": "042e1786-0cb3-4c9a-9ab3-b9861d26f14c",
+      "name": "HTTP Request"
     }
   ],
-  "pinData": {
-    "Edit Fields (Set)": [
-      {
-        "json": {
-          "greeting": "Hello, n8n!"
-        }
-      }
-    ],
-    "HTTP Request": [
-      {
-        "json": {
-          "userId": 1,
-          "id": 1,
-          "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
-          "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "connections": {
-    "When clicking ‘Test workflow’": {
+    "When clicking ‘Execute workflow’": {
       "main": [
         [
           {
-            "node": "Edit Fields (Set)",
+            "node": "Create Greetings Message",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Edit Fields (Set)": {
+    "Create Greetings Message": {
       "main": [
         [
           {
@@ -96,13 +77,14 @@
   },
   "active": false,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "binaryMode": "separate"
   },
-  "versionId": "b2c3d4e5-6789-40ab-bcde-f1234567890a",
+  "versionId": "47046a9d-0092-479e-ae6e-59de0a0e1587",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "assessment-tayana-academy-node-02"
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
   },
-  "id": "Topic2DebuggingWorkflow",
+  "nodeGroups": [],
+  "id": "yyamkRaCKXHMO1NL",
   "tags": []
 }
