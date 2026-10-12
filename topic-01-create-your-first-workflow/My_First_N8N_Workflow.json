@@ -3,54 +3,46 @@
   "nodes": [
     {
       "parameters": {},
-      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
-      "name": "When clicking ‘Test workflow’",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        820,
-        360
-      ]
+        0,
+        0
+      ],
+      "id": "bf4b843c-c18c-42ba-9661-2550b810a44d",
+      "name": "When clicking ‘Execute workflow’"
     },
     {
       "parameters": {
         "assignments": {
           "assignments": [
             {
-              "id": "673cf824-3f9b-44bb-8f2c-e5ad42875f10",
+              "id": "5d18d235-31c0-49d8-b1f6-015b7078ae69",
               "name": "greeting",
-              "value": "Hello, n8n!",
+              "value": "Hello n8n",
               "type": "string"
             }
           ]
         },
         "options": {}
       },
-      "id": "3dcda46d-c58b-4b10-8b01-5240c117b34b",
-      "name": "Edit Fields (Set)",
       "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
+      "typeVersion": 3.5,
       "position": [
-        1040,
-        360
-      ]
+        224,
+        0
+      ],
+      "id": "6567cec0-bb29-4feb-988e-1403bcd8c31b",
+      "name": "Create Greetings Message"
     }
   ],
-  "pinData": {
-    "Edit Fields (Set)": [
-      {
-        "json": {
-          "greeting": "Hello, n8n!"
-        }
-      }
-    ]
-  },
+  "pinData": {},
   "connections": {
-    "When clicking ‘Test workflow’": {
+    "When clicking ‘Execute workflow’": {
       "main": [
         [
           {
-            "node": "Edit Fields (Set)",
+            "node": "Create Greetings Message",
             "type": "main",
             "index": 0
           }
@@ -60,13 +52,14 @@
   },
   "active": false,
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "binaryMode": "separate"
   },
-  "versionId": "1a0833e2-8ea9-42b4-9273-0498b671ff8b",
+  "versionId": "b4a3842e-5b80-4f71-8cc9-1501c0f94856",
   "meta": {
-    "templateCredsSetupCompleted": true,
-    "instanceId": "assessment-tayana-academy-node-01"
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
   },
-  "id": "MyFirstN8NWorkflow",
+  "nodeGroups": [],
+  "id": "KqOnihD0xRMW81OI",
   "tags": []
 }
