@@ -233,14 +233,4 @@ Demo Video Link: [INSERT YOUR LOOM OR YOUTUBE LINK HERE]
 ================================================================================
 ```
 
----
 
-## 9. Demo Video Recording Guide (60–90 Seconds)
-
-| Timestamp | Screen Action | Voiceover Script |
-| :--- | :--- | :--- |
-| **0:00 – 0:15** | Show canvas with title `Topic 3 Core Nodes Workflow` and 3 connected nodes: Manual Trigger ➔ Set Original Data ➔ Modify & Map. | *"Hello evaluator! In Topic 3, we are demonstrating core node configuration and dynamic data mapping in n8n. Here is our 3-node workflow on the canvas."* |
-| **0:15 – 0:35** | Open `Set Original Data` modal. Point out String `productName`, Number `basePrice`, and Boolean `isAvailable`. | *"Opening 'Set Original Data', we see our typed initial fields: productName as String 'Wireless Mouse', basePrice as Number 25, and isAvailable as Boolean true."* |
-| **0:35 – 0:55** | Open `Modify & Map` modal. Highlight `isAvailable` overwritten to `false`, `inventoryLabel` with `{{ $json.productName }}`, and `priceWithTax` with `{{ $json.basePrice * 1.1 }}`. | *"In 'Modify & Map', we overwrite isAvailable to false, dynamically map inventoryLabel from productName using an expression, and compute priceWithTax using basePrice times 1.1."* |
-| **0:55 – 1:15** | Click **Test workflow**. Open final node output. Toggle Table, JSON, and Schema views. Point out `priceWithTax: 27.5`. | *"Running Test workflow, both nodes succeed instantly. In JSON view, we have all five fields with priceWithTax equal to 27.5. Schema view confirms all data types."* |
-| **1:15 – 1:30** | Show GitHub repository and PDF documentation. Wrap up. | *"All deliverables, including the JSON workflow export and generated PDF documentation, are published to our public GitHub repo. Thank you!"* |
