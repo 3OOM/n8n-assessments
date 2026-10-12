@@ -21,10 +21,10 @@ Each assessment is housed in its own dedicated directory containing:
 
 ## 📂 Assessments Index
 
-| Folder | Topic / Assessment | Difficulty | Status | Demo Video |
+| Folder | Topic / Assessment | Difficulty | Status | Deliverables |
 | :--- | :--- | :--- | :--- | :--- |
-| [`topic-01-create-your-first-workflow/`](./topic-01-create-your-first-workflow/) | **Topic 1: Create Your First Workflow**<br>Manual Trigger + Edit Fields (Set) -> `Hello, n8n!` | Beginner | ✅ Completed | [Video Link Placeholder] |
-| `topic-02-data-transformation/` *(upcoming)* | Topic 2: Data Transformation & Expressions | Beginner | ⏳ Upcoming | — |
+| [`topic-01-create-your-first-workflow/`](./topic-01-create-your-first-workflow/) | **Topic 1: Create Your First Workflow**<br>Manual Trigger + Edit Fields (Set) -> `Hello, n8n!` | Beginner | ✅ Completed | [Workflow JSON](./topic-01-create-your-first-workflow/My_First_N8N_Workflow.json) • [Docs](./topic-01-create-your-first-workflow/README.md) |
+| [`topic-02-workflow-execution-and-debugging/`](./topic-02-workflow-execution-and-debugging/) | **Topic 2: Understanding Workflow Execution & Debugging Basics**<br>Manual Trigger ➔ Edit Fields ➔ HTTP Request (Error & Resolution) | Beginner | ✅ Completed | [Workflow JSON](./topic-02-workflow-execution-and-debugging/Topic_2_Debugging_Workflow.json) • [Docs (MD)](./topic-02-workflow-execution-and-debugging/README.md) • [Docs (PDF)](./topic-02-workflow-execution-and-debugging/README.pdf) |
 | `topic-03-webhooks-and-apis/` *(upcoming)* | Topic 3: Webhooks & External API Integrations | Intermediate | ⏳ Upcoming | — |
 | `topic-04-conditional-logic/` *(upcoming)* | Topic 4: Flow Control & Conditional Logic (If / Switch) | Intermediate | ⏳ Upcoming | — |
 
