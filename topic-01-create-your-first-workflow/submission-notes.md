@@ -10,7 +10,7 @@
 **Student Name:** Abhishek Nikam  
 **Student Email:** abhishek.n@tayanasolutions.com  
 **Workflow Name:** My First N8N Workflow  
-**GitHub Repository Link:** https://github.com/abhisheknikam3/n8n-assessments/tree/main/topic-01-create-your-first-workflow  
+**GitHub Repository Link:** https://github.com/3OOM/n8n-assessments/tree/main/topic-01-create-your-first-workflow  
 **Demo Video Link:** [REPLACE WITH YOUR LOOM OR YOUTUBE LINK]  
 
 ---

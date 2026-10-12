@@ -6,7 +6,7 @@
 > **Difficulty Level:** Beginner  
 > **Platform Version:** n8n version 1.0.0 or higher  
 > **Student:** Abhishek Nikam (`abhishek.n@tayanasolutions.com`)  
-> **Repository:** [n8n-assessments](https://github.com/abhisheknikam3/n8n-assessments)  
+> **Repository:** [n8n-assessments](https://github.com/3OOM/n8n-assessments)  
 
 ---
 
@@ -182,6 +182,6 @@ Screenshots showcasing execution and verification are stored in the [`screenshot
 
 ## 9. Submission Links
 
-- **Public GitHub Repository:** [https://github.com/abhisheknikam3/n8n-assessments](https://github.com/abhisheknikam3/n8n-assessments)
-- **Topic Folder:** [https://github.com/abhisheknikam3/n8n-assessments/tree/main/topic-01-create-your-first-workflow](https://github.com/abhisheknikam3/n8n-assessments/tree/main/topic-01-create-your-first-workflow)
+- **Public GitHub Repository:** [https://github.com/3OOM/n8n-assessments](https://github.com/3OOM/n8n-assessments)
+- **Topic Folder:** [https://github.com/3OOM/n8n-assessments/tree/main/topic-01-create-your-first-workflow](https://github.com/3OOM/n8n-assessments/tree/main/topic-01-create-your-first-workflow)
 - **Video Demonstration:** `[INSERT YOUR LOOM / YOUTUBE URL HERE]` *(Record using the provided [demo-script.md](./demo-script.md))*

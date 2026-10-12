@@ -36,7 +36,7 @@ Follow these simple steps to import and run any workflow from this repository in
 
 1. **Clone or Download this repository:**
    ```bash
-   git clone https://github.com/abhisheknikam3/n8n-assessments.git
+   git clone https://github.com/3OOM/n8n-assessments.git
    ```
 2. **Open n8n:**
    - Access your n8n instance (Cloud, Docker, or local at `http://localhost:5678`).
@@ -64,4 +64,4 @@ Follow these simple steps to import and run any workflow from this repository in
 
 - **Name:** Abhishek Nikam
 - **Email:** abhishek.n@tayanasolutions.com
-- **GitHub:** [@abhisheknikam3](https://github.com/abhisheknikam3)
+- **GitHub:** [@3OOM](https://github.com/3OOM) (abhisheknikam3)
