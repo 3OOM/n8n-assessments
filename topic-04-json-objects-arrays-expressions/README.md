@@ -264,14 +264,3 @@ Demo Video Link: [INSERT YOUR LOOM OR YOUTUBE LINK HERE]
 ================================================================================
 ```
 
----
-
-## 9. Demo Video Recording Guide (60–90 Seconds)
-
-| Timestamp | Screen Action | Voiceover Script |
-| :--- | :--- | :--- |
-| **0:00 – 0:15** | Show canvas with title `Topic4_JSON_Data_Assessment` and the 3 connected nodes: Manual Trigger ➔ Mock Nested JSON Data ➔ Extract Values. | *"Hello evaluator! In Topic 4, we are exploring JSON objects, arrays, and expression mapping in n8n. Here is our 3-node assessment workflow on the canvas."* |
-| **0:15 – 0:35** | Open `Mock Nested JSON Data` Code node. Show JavaScript code returning nested customer, address, and orders array. Run node. | *"In the Code node, we generate a nested customer profile containing a nested address object, an orders array with two items, and a membership field. Executing this node, we see our structured JSON."* |
-| **0:35 – 0:55** | Open `Extract Values` Edit Fields node. Show expressions: `{{ $json.customer.name }}`, `{{ $json.customer.address.city }}`, and `{{ $json.orders[0].total }}`. | *"In 'Extract Values', we extract customerName using dot notation, cityOfCustomer using nested dot notation, and firstOrderTotal using zero-based array indexing orders[0].total."* |
-| **0:55 – 1:15** | Click **Test workflow**. Open final node output. Toggle Table, JSON, and Schema views. Point out `firstOrderTotal: 149.99`. | *"Running Test workflow, all nodes execute with green checkmarks. In JSON view, we have our clean 3-field output: Jane Doe, San Francisco, and 149.99 as a native Number."* |
-| **1:15 – 1:30** | Show GitHub repository and PDF documentation. Wrap up. | *"All files including the JSON workflow export and formatted PDF documentation are committed to our public GitHub repo. Thank you!"* |
