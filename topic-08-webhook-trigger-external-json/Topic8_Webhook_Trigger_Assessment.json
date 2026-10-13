@@ -1,0 +1,112 @@
+{
+  "name": "Topic8_Webhook_Trigger_Assessment",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "contact-form",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        380,
+        360
+      ],
+      "webhookId": "9a8b7c6d-5e4f-3a2b-1c0d-e9f8a7b6c5d4"
+    },
+    {
+      "parameters": {
+        "includeOtherFields": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1e2f3a4b-5c6d-7e8f-9a0b-1c2d3e4f5a6b",
+              "name": "customerName",
+              "value": "={{ $json.body.name }}",
+              "type": "string"
+            },
+            {
+              "id": "2f3a4b5c-6d7e-8f9a-0b1c-2d3e4f5a6b7c",
+              "name": "customerEmail",
+              "value": "={{ $json.body.email }}",
+              "type": "string"
+            },
+            {
+              "id": "3a4b5c6d-7e8f-9a0b-1c2d-3e4f5a6b7c8d",
+              "name": "customerMessage",
+              "value": "={{ $json.body.message }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a5b6c7d8-e9f0-4a1b-8c2d-3e4f5a6b7c8d",
+      "name": "Process Webhook Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        620,
+        360
+      ]
+    }
+  ],
+  "pinData": {
+    "Webhook Trigger": [
+      {
+        "json": {
+          "headers": {
+            "host": "localhost:5678",
+            "user-agent": "PostmanRuntime/7.39.0",
+            "content-type": "application/json",
+            "accept": "*/*"
+          },
+          "params": {},
+          "query": {},
+          "body": {
+            "name": "Alex Johnson",
+            "email": "alex.johnson@example.com",
+            "message": "Interested in enterprise workflow automation consulting."
+          }
+        }
+      }
+    ],
+    "Process Webhook Data": [
+      {
+        "json": {
+          "customerName": "Alex Johnson",
+          "customerEmail": "alex.johnson@example.com",
+          "customerMessage": "Interested in enterprise workflow automation consulting."
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Process Webhook Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "b8c9d0e1-2f3a-4b5c-6d7e-8f9a0b1c2d3e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic8WebhookTriggerAssessment",
+  "tags": []
+}
