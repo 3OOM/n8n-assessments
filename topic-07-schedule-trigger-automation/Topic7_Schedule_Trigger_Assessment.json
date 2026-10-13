@@ -1,0 +1,86 @@
+{
+  "name": "Topic7_Schedule_Trigger_Assessment",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 9,
+              "triggerAtMinute": 0
+            },
+            {
+              "field": "cronExpression",
+              "expression": "30 8 * * 1-5"
+            }
+          ]
+        }
+      },
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        380,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1d2e3f4a-5b6c-7d8e-9f0a-1b2c3d4e5f6a",
+              "name": "executionTime",
+              "value": "={{ $now.toFormat('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a4b5c6d7-e8f9-4a0b-8c1d-2e3f4a5b6c7d",
+      "name": "Log Execution",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        620,
+        360
+      ]
+    }
+  ],
+  "pinData": {
+    "Log Execution": [
+      {
+        "json": {
+          "executionTime": "2026-10-13 09:00:00"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Log Execution",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "a7b8c9d0-1e2f-3a4b-5c6d-7e8f9a0b1c2d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic7ScheduleTriggerAssessment",
+  "tags": []
+}
