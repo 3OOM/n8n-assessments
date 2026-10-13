@@ -1,0 +1,142 @@
+{
+  "name": "Topic6_Data_Transformation_Assessment",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        380,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1c2d3e4f-5a6b-7c8d-9e0f-1a2b3c4d5e6f",
+              "name": "Raw_Name",
+              "value": "  jane DOE  ",
+              "type": "string"
+            },
+            {
+              "id": "2d3e4f5a-6b7c-8d9e-0f1a-2b3c4d5e6f7a",
+              "name": "contact_email",
+              "value": "  Jane@Example.COM  ",
+              "type": "string"
+            },
+            {
+              "id": "3e4f5a6b-7c8d-9e0f-1a2b-3c4d5e6f7a8b",
+              "name": "phone_number",
+              "value": "  123-456-7890  ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3b4c5d6-e7f8-4a9b-8c0d-1e2f3a4b5c6d",
+      "name": "Dirty Raw Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        600,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "includeOtherFields": false,
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4f5a6b7c-8d9e-0f1a-2b3c-4d5e6f7a8b9c",
+              "name": "cleanName",
+              "value": "={{ $json.Raw_Name.trim().toUpperCase() }}",
+              "type": "string"
+            },
+            {
+              "id": "5a6b7c8d-9e0f-1a2b-3c4d-5e6f7a8b9c0d",
+              "name": "cleanEmail",
+              "value": "={{ $json.contact_email.trim().toLowerCase() }}",
+              "type": "string"
+            },
+            {
+              "id": "6b7c8d9e-0f1a-2b3c-4d5e-6f7a8b9c0d1e",
+              "name": "cleanPhone",
+              "value": "={{ $json.phone_number.trim() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b4c5d6e7-f8a9-4b0c-9d1e-2f3a4b5c6d7e",
+      "name": "Reformat & Map",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        820,
+        360
+      ]
+    }
+  ],
+  "pinData": {
+    "Dirty Raw Data": [
+      {
+        "json": {
+          "Raw_Name": "  jane DOE  ",
+          "contact_email": "  Jane@Example.COM  ",
+          "phone_number": "  123-456-7890  "
+        }
+      }
+    ],
+    "Reformat & Map": [
+      {
+        "json": {
+          "cleanName": "JANE DOE",
+          "cleanEmail": "jane@example.com",
+          "cleanPhone": "123-456-7890"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Dirty Raw Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dirty Raw Data": {
+      "main": [
+        [
+          {
+            "node": "Reformat & Map",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f6a7b8c9-0d1e-2f3a-4b5c-6d7e8f9a0b1c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic6DataTransformationAssessment",
+  "tags": []
+}
