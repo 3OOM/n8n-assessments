@@ -1,0 +1,251 @@
+{
+  "name": "Topic 9 Google Sheets Integration Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1f2a3b4c-5d6e-7f8a-9b0c-1d2e3f4a5b6c",
+              "name": "customerName",
+              "value": "John Doe",
+              "type": "string"
+            },
+            {
+              "id": "2a3b4c5d-6e7f-8a9b-0c1d-2e3f4a5b6c7d",
+              "name": "customerEmail",
+              "value": "john.doe@example.com",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b5c6d7e8-f9a0-4b1c-8d2e-3f4a5b6c7d8e",
+      "name": "Mock Customer Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID_HERE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Name": "={{ $json.customerName }}",
+            "Email": "={{ $json.customerEmail }}",
+            "Status": "Pending"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "c6d7e8f9-a0b1-4c2d-9e3f-4a5b6c7d8e9f",
+      "name": "Append Customer Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        700,
+        360
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "googleSheetsOAuth2Api_Credential",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID_HERE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "id": "d7e8f9a0-b1c2-4d3e-af4a-5b6c7d8e9f0a",
+      "name": "Read Customers",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        920,
+        360
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "googleSheetsOAuth2Api_Credential",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID_HERE",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columnToMatchOn": "Email",
+        "valueToMatchOn": "={{ $('Mock Customer Data').item.json.customerEmail }}",
+        "fieldsToUpdate": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "Verified"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "e8f9a0b1-c2d3-4e4f-bf5a-6c7d8e9f0a1b",
+      "name": "Update Customer Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1140,
+        360
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "googleSheetsOAuth2Api_Credential",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Mock Customer Data": [
+      {
+        "json": {
+          "customerName": "John Doe",
+          "customerEmail": "john.doe@example.com"
+        }
+      }
+    ],
+    "Append Customer Row": [
+      {
+        "json": {
+          "Name": "John Doe",
+          "Email": "john.doe@example.com",
+          "Status": "Pending"
+        }
+      }
+    ],
+    "Read Customers": [
+      {
+        "json": {
+          "row_number": 2,
+          "Name": "John Doe",
+          "Email": "john.doe@example.com",
+          "Status": "Pending"
+        }
+      }
+    ],
+    "Update Customer Status": [
+      {
+        "json": {
+          "row_number": 2,
+          "Name": "John Doe",
+          "Email": "john.doe@example.com",
+          "Status": "Verified"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Mock Customer Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mock Customer Data": {
+      "main": [
+        [
+          {
+            "node": "Append Customer Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append Customer Row": {
+      "main": [
+        [
+          {
+            "node": "Read Customers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Customers": {
+      "main": [
+        [
+          {
+            "node": "Update Customer Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c9d0e1f2-3a4b-5c6d-7e8f-9a0b1c2d3e4f",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic9GoogleSheetsIntegrationWorkflow",
+  "tags": []
+}
