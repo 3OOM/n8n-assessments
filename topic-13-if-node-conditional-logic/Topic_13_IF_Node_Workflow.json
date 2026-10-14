@@ -1,0 +1,208 @@
+{
+  "name": "Topic 13 IF Node Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1b2c3d4-e5f6-4a1b-8c2d-3e4f5a6b7c8d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      customerName: \"Alice\",\n      orderValue: 150\n    }\n  },\n  {\n    json: {\n      customerName: \"Bob\",\n      orderValue: 75\n    }\n  }\n];"
+      },
+      "id": "b2c3d4e5-f6a1-4b2c-9d3e-4f5a6b7c8d9e",
+      "name": "Mock Orders",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c3d4e5f6-a1b2-4c3d-ae4f-5a6b7c8d9e0f",
+              "leftValue": "={{ $json.orderValue }}",
+              "rightValue": 100,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "d4e5f6a1-b2c3-4d4e-bf5a-6b7c8d9e0f1a",
+      "name": "Check Order VIP Status",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        700,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5f6a1b2-c3d4-4e5f-cf6b-7c8d9e0f1a2b",
+              "name": "status",
+              "value": "VIP",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5f6a1b2-c3d4-4e5f-cf6b-7c8d9e0f1a2b",
+      "name": "Set VIP",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f6a1b2c3-d4e5-4f6a-df7c-8d9e0f1a2b3c",
+              "name": "status",
+              "value": "Regular",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f6a1b2c3-d4e5-4f6a-df7c-8d9e0f1a2b3c",
+      "name": "Set Regular",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        940,
+        460
+      ]
+    }
+  ],
+  "pinData": {
+    "Mock Orders": [
+      {
+        "json": {
+          "customerName": "Alice",
+          "orderValue": 150
+        }
+      },
+      {
+        "json": {
+          "customerName": "Bob",
+          "orderValue": 75
+        }
+      }
+    ],
+    "Set VIP": [
+      {
+        "json": {
+          "customerName": "Alice",
+          "orderValue": 150,
+          "status": "VIP"
+        }
+      }
+    ],
+    "Set Regular": [
+      {
+        "json": {
+          "customerName": "Bob",
+          "orderValue": 75,
+          "status": "Regular"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Mock Orders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mock Orders": {
+      "main": [
+        [
+          {
+            "node": "Check Order VIP Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Order VIP Status": {
+      "main": [
+        [
+          {
+            "node": "Set VIP",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Regular",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d33c6f24-8db1-4fb5-aa4f-1f44ee3322cc",
+  "meta": {
+    "instanceId": "cb48e91024fbcf8d55a9b70b33e5021239aaef5488bf0a05a109bbcfd4833c8b",
+    "templateCredsSetupCompleted": true
+  },
+  "id": "Topic13IfNodeWorkflow",
+  "tags": [
+    {
+      "name": "Conditional Logic",
+      "id": "tag_conditional_logic"
+    },
+    {
+      "name": "IF Node",
+      "id": "tag_if_node"
+    },
+    {
+      "name": "Data Routing",
+      "id": "tag_data_routing"
+    }
+  ]
+}
