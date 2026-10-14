@@ -1,0 +1,128 @@
+{
+  "name": "Topic 10 Gmail Integration Assessment",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e8a00c6d-96f3-4cf1-8c4c-35a42db4d320",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1a2b3c4d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+              "name": "customerName",
+              "value": "Jane Doe",
+              "type": "string"
+            },
+            {
+              "id": "2b3c4d5e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+              "name": "customerEmail",
+              "value": "jane.doe@example.com",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c7d8e9f0-a1b2-4c3d-8e4f-5a6b7c8d9e0f",
+      "name": "Mock Customer Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": [
+          "={{ $json.customerEmail }}"
+        ],
+        "subject": "=Welcome to N8N Course, {{ $json.customerName }}!",
+        "emailType": "text",
+        "message": "=Hi {{ $json.customerName }},\n\nWelcome to the N8N Hands-On Beginner Course! We are excited to have you on board.\n\nThis message was sent automatically using Gmail Integration in n8n.\n\nBest regards,\nTraining Team",
+        "options": {}
+      },
+      "id": "e9f0a1b2-c3d4-4e5f-af6a-7b8c9d0e1f2a",
+      "name": "Send Personalized Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        700,
+        360
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmailOAuth2_Credential",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Mock Customer Data": [
+      {
+        "json": {
+          "customerName": "Jane Doe",
+          "customerEmail": "jane.doe@example.com"
+        }
+      }
+    ],
+    "Send Personalized Email": [
+      {
+        "json": {
+          "id": "18dc3f4a9b0c1d2e",
+          "threadId": "18dc3f4a9b0c1d2e",
+          "labelIds": [
+            "SENT"
+          ]
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Mock Customer Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mock Customer Data": {
+      "main": [
+        [
+          {
+            "node": "Send Personalized Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "d0e1f2a3-4b5c-6d7e-8f9a-0b1c2d3e4f5a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a03c7678428ef19ededbf912f16f7d5798ec7b9ab4c17f2a2def6a9e791e7215"
+  },
+  "id": "Topic10GmailIntegrationAssessment",
+  "tags": []
+}
