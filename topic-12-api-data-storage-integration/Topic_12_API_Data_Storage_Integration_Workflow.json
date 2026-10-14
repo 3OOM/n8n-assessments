@@ -1,0 +1,457 @@
+{
+  "name": "Topic 12 API & Data Storage Integration Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1b2c3d4-e5f6-4a1b-8c2d-3e4f5a6b7c8d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        260,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://jsonplaceholder.typicode.com/users",
+        "authentication": "none",
+        "options": {}
+      },
+      "id": "b2c3d4e5-f6a1-4b2c-9d3e-4f5a6b7c8d9e",
+      "name": "Fetch API Users",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        480,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "N8N_API_STORAGE_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Sheet1",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $json.id }}",
+            "Name": "={{ $json.name }}",
+            "Email": "={{ $json.email }}",
+            "Company": "={{ $json.company.name }}"
+          },
+          "matchingColumns": [],
+          "schema": []
+        },
+        "options": {}
+      },
+      "id": "c3d4e5f6-a1b2-4c3d-ae4f-5a6b7c8d9e0f",
+      "name": "Store Users in Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        700,
+        360
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "googleSheetsOAuth2Api_Credential",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Fetch API Users": [
+      {
+        "json": {
+          "id": 1,
+          "name": "Leanne Graham",
+          "username": "Bret",
+          "email": "Sincere@april.biz",
+          "address": {
+            "street": "Kulas Light",
+            "suite": "Apt. 556",
+            "city": "Gwenborough",
+            "zipcode": "92998-3874",
+            "geo": {
+              "lat": "-37.3159",
+              "lng": "81.1496"
+            }
+          },
+          "phone": "1-770-736-8031 x56442",
+          "website": "hildegard.org",
+          "company": {
+            "name": "Romaguera-Crona",
+            "catchPhrase": "Multi-layered client-server neural-net",
+            "bs": "harness real-time e-markets"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 2,
+          "name": "Ervin Howell",
+          "username": "Antonette",
+          "email": "Shanna@melissa.tv",
+          "address": {
+            "street": "Victor Plains",
+            "suite": "Suite 879",
+            "city": "Wisokyburgh",
+            "zipcode": "90566-7771",
+            "geo": {
+              "lat": "-43.9509",
+              "lng": "-34.4618"
+            }
+          },
+          "phone": "010-692-6593 x09125",
+          "website": "anastasia.net",
+          "company": {
+            "name": "Deckow-Crist",
+            "catchPhrase": "Proactive didactic contingency",
+            "bs": "synergize scalable supply-chains"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 3,
+          "name": "Clementine Bauch",
+          "username": "Samantha",
+          "email": "Nathan@yesenia.net",
+          "address": {
+            "street": "Douglas Extension",
+            "suite": "Suite 847",
+            "city": "McKenziehaven",
+            "zipcode": "59590-4157",
+            "geo": {
+              "lat": "-68.6102",
+              "lng": "-47.0653"
+            }
+          },
+          "phone": "1-463-123-4447",
+          "website": "ramiro.info",
+          "company": {
+            "name": "Romaguera-Jacobson",
+            "catchPhrase": "Face to face bifurcated interface",
+            "bs": "e-enable strategic applications"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 4,
+          "name": "Patricia Lebsack",
+          "username": "Karianne",
+          "email": "Julianne.OConner@kory.org",
+          "address": {
+            "street": "Hoeger Mall",
+            "suite": "Apt. 692",
+            "city": "South Elvis",
+            "zipcode": "53919-4257",
+            "geo": {
+              "lat": "29.4572",
+              "lng": "-164.2990"
+            }
+          },
+          "phone": "493-170-9623 x156",
+          "website": "kale.biz",
+          "company": {
+            "name": "Robel-Corkery",
+            "catchPhrase": "Multi-tiered zero tolerance productivity",
+            "bs": "transition cutting-edge web services"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 5,
+          "name": "Chelsey Dietrich",
+          "username": "Kamren",
+          "email": "Lucio_Hettinger@annie.ca",
+          "address": {
+            "street": "Skiles Walks",
+            "suite": "Suite 351",
+            "city": "Roscoeview",
+            "zipcode": "33263",
+            "geo": {
+              "lat": "-31.8129",
+              "lng": "62.5342"
+            }
+          },
+          "phone": "(254)954-1289",
+          "website": "demarco.info",
+          "company": {
+            "name": "Keebler LLC",
+            "catchPhrase": "User-centric fault-tolerant solution",
+            "bs": "revolutionize end-to-end systems"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 6,
+          "name": "Mrs. Dennis Schulist",
+          "username": "Leopoldo_Corkery",
+          "email": "Karley_Dach@jasper.info",
+          "address": {
+            "street": "Norberto Crossing",
+            "suite": "Apt. 950",
+            "city": "South Christy",
+            "zipcode": "23505-1337",
+            "geo": {
+              "lat": "-71.4197",
+              "lng": "71.7478"
+            }
+          },
+          "phone": "1-477-935-8478 x6430",
+          "website": "ola.org",
+          "company": {
+            "name": "Considine-Lockman",
+            "catchPhrase": "Synchronised bottom-line interface",
+            "bs": "e-enable innovative applications"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 7,
+          "name": "Kurtis Weissnat",
+          "username": "Elwyn.Skiles",
+          "email": "Telly.Hoeger@billy.biz",
+          "address": {
+            "street": "Rex Trail",
+            "suite": "Suite 280",
+            "city": "Howemouth",
+            "zipcode": "58804-1099",
+            "geo": {
+              "lat": "24.8918",
+              "lng": "21.8984"
+            }
+          },
+          "phone": "210.067.6132",
+          "website": "elvis.io",
+          "company": {
+            "name": "Johns Group",
+            "catchPhrase": "Configurable multimedia task-force",
+            "bs": "generate enterprise e-tailers"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 8,
+          "name": "Nicholas Runolfsdottir V",
+          "username": "Maxime_Nienow",
+          "email": "Sherwood@rosamond.me",
+          "address": {
+            "street": "Ellsworth Summit",
+            "suite": "Suite 729",
+            "city": "Aliyaview",
+            "zipcode": "45169",
+            "geo": {
+              "lat": "-14.3990",
+              "lng": "-120.7677"
+            }
+          },
+          "phone": "586.493.6943 x140",
+          "website": "jacynthe.com",
+          "company": {
+            "name": "Abernathy Group",
+            "catchPhrase": "Implemented secondary concept",
+            "bs": "e-enable extensible e-tailers"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 9,
+          "name": "Glenna Reichert",
+          "username": "Delphine",
+          "email": "Chaim_McDermott@dana.io",
+          "address": {
+            "street": "Dayna Park",
+            "suite": "Suite 449",
+            "city": "Bartholomebury",
+            "zipcode": "76495-3109",
+            "geo": {
+              "lat": "24.6463",
+              "lng": "-168.8889"
+            }
+          },
+          "phone": "(775)976-6794 x41206",
+          "website": "conrad.com",
+          "company": {
+            "name": "Yost and Sons",
+            "catchPhrase": "Switchable contextually-based project",
+            "bs": "aggregate real-time technologies"
+          }
+        }
+      },
+      {
+        "json": {
+          "id": 10,
+          "name": "Clementina DuBuque",
+          "username": "Moriah.Stanton",
+          "email": "Rey.Padberg@karina.biz",
+          "address": {
+            "street": "Kattie Turnpike",
+            "suite": "Suite 198",
+            "city": "Lebsackbury",
+            "zipcode": "31428-2261",
+            "geo": {
+              "lat": "-38.2386",
+              "lng": "57.2232"
+            }
+          },
+          "phone": "024-648-3804",
+          "website": "ambrose.net",
+          "company": {
+            "name": "Hoeger LLC",
+            "catchPhrase": "Centralized empowering task-force",
+            "bs": "target end-to-end models"
+          }
+        }
+      }
+    ],
+    "Store Users in Sheet": [
+      {
+        "json": {
+          "ID": 1,
+          "Name": "Leanne Graham",
+          "Email": "Sincere@april.biz",
+          "Company": "Romaguera-Crona"
+        }
+      },
+      {
+        "json": {
+          "ID": 2,
+          "Name": "Ervin Howell",
+          "Email": "Shanna@melissa.tv",
+          "Company": "Deckow-Crist"
+        }
+      },
+      {
+        "json": {
+          "ID": 3,
+          "Name": "Clementine Bauch",
+          "Email": "Nathan@yesenia.net",
+          "Company": "Romaguera-Jacobson"
+        }
+      },
+      {
+        "json": {
+          "ID": 4,
+          "Name": "Patricia Lebsack",
+          "Email": "Julianne.OConner@kory.org",
+          "Company": "Robel-Corkery"
+        }
+      },
+      {
+        "json": {
+          "ID": 5,
+          "Name": "Chelsey Dietrich",
+          "Email": "Lucio_Hettinger@annie.ca",
+          "Company": "Keebler LLC"
+        }
+      },
+      {
+        "json": {
+          "ID": 6,
+          "Name": "Mrs. Dennis Schulist",
+          "Email": "Karley_Dach@jasper.info",
+          "Company": "Considine-Lockman"
+        }
+      },
+      {
+        "json": {
+          "ID": 7,
+          "Name": "Kurtis Weissnat",
+          "Email": "Telly.Hoeger@billy.biz",
+          "Company": "Johns Group"
+        }
+      },
+      {
+        "json": {
+          "ID": 8,
+          "Name": "Nicholas Runolfsdottir V",
+          "Email": "Sherwood@rosamond.me",
+          "Company": "Abernathy Group"
+        }
+      },
+      {
+        "json": {
+          "ID": 9,
+          "Name": "Glenna Reichert",
+          "Email": "Chaim_McDermott@dana.io",
+          "Company": "Yost and Sons"
+        }
+      },
+      {
+        "json": {
+          "ID": 10,
+          "Name": "Clementina DuBuque",
+          "Email": "Rey.Padberg@karina.biz",
+          "Company": "Hoeger LLC"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Fetch API Users",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch API Users": {
+      "main": [
+        [
+          {
+            "node": "Store Users in Sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c22b5e13-7ca0-4ea4-993f-0e33ff2211bb",
+  "meta": {
+    "instanceId": "cb48e91024fbcf8d55a9b70b33e5021239aaef5488bf0a05a109bbcfd4833c8b",
+    "templateCredsSetupCompleted": true
+  },
+  "id": "Topic12ApiDataStorageWorkflow",
+  "tags": [
+    {
+      "name": "HTTP Request Node",
+      "id": "tag_http_request"
+    },
+    {
+      "name": "Google Sheets",
+      "id": "tag_google_sheets"
+    },
+    {
+      "name": "Automatic Looping",
+      "id": "tag_automatic_looping"
+    }
+  ]
+}
