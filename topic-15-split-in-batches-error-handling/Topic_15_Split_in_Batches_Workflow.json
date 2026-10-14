@@ -1,0 +1,196 @@
+{
+  "name": "Topic 15 Split in Batches Workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a1b2c3d4-e5f6-4a1b-8c2d-3e4f5a6b7c8d",
+      "name": "When clicking ‘Test workflow’",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [\n  {\n    json: {\n      url: \"https://jsonplaceholder.typicode.com/posts/1\"\n    }\n  },\n  {\n    json: {\n      url: \"https://jsonplaceholder.typicode.com/posts/1\"\n    }\n  },\n  {\n    json: {\n      url: \"https://invalid-url-domain-does-not-exist.xyz/\"\n    }\n  },\n  {\n    json: {\n      url: \"https://jsonplaceholder.typicode.com/posts/1\"\n    }\n  },\n  {\n    json: {\n      url: \"https://jsonplaceholder.typicode.com/posts/1\"\n    }\n  }\n];"
+      },
+      "id": "b2c3d4e5-f6a1-4b2c-9d3e-4f5a6b7c8d9e",
+      "name": "Mock Items List",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 2,
+        "options": {}
+      },
+      "id": "c3d4e5f6-a1b2-4c3d-ae4f-5a6b7c8d9e0f",
+      "name": "Split in Batches",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        680,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $json.url }}",
+        "authentication": "none",
+        "options": {}
+      },
+      "id": "d4e5f6a1-b2c3-4d4e-bf5a-6b7c8d9e0f1a",
+      "name": "Fetch Details",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        920,
+        240
+      ],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "e5f6a1b2-c3d4-4e5f-cf6b-7c8d9e0f1a2b",
+              "name": "status",
+              "value": "All Batches Processed",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5f6a1b2-c3d4-4e5f-cf6b-7c8d9e0f1a2b",
+      "name": "Compile Final List",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        920,
+        480
+      ]
+    }
+  ],
+  "pinData": {
+    "Mock Items List": [
+      {
+        "json": {
+          "url": "https://jsonplaceholder.typicode.com/posts/1"
+        }
+      },
+      {
+        "json": {
+          "url": "https://jsonplaceholder.typicode.com/posts/1"
+        }
+      },
+      {
+        "json": {
+          "url": "https://invalid-url-domain-does-not-exist.xyz/"
+        }
+      },
+      {
+        "json": {
+          "url": "https://jsonplaceholder.typicode.com/posts/1"
+        }
+      },
+      {
+        "json": {
+          "url": "https://jsonplaceholder.typicode.com/posts/1"
+        }
+      }
+    ],
+    "Compile Final List": [
+      {
+        "json": {
+          "status": "All Batches Processed"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Mock Items List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mock Items List": {
+      "main": [
+        [
+          {
+            "node": "Split in Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split in Batches": {
+      "main": [
+        [
+          {
+            "node": "Fetch Details",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Compile Final List",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Details": {
+      "main": [
+        [
+          {
+            "node": "Split in Batches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "f55e8b46-0fd3-4bd7-cc6b-3e66aa5544ee",
+  "meta": {
+    "instanceId": "cb48e91024fbcf8d55a9b70b33e5021239aaef5488bf0a05a109bbcfd4833c8b",
+    "templateCredsSetupCompleted": true
+  },
+  "id": "Topic15SplitInBatchesWorkflow",
+  "tags": [
+    {
+      "name": "Split in Batches",
+      "id": "tag_split_in_batches"
+    },
+    {
+      "name": "Error Handling",
+      "id": "tag_error_handling"
+    },
+    {
+      "name": "Looping",
+      "id": "tag_looping"
+    }
+  ]
+}
